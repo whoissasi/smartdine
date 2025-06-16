@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Restaurant</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Restaurant - Home</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,49 +13,33 @@
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#booking">Book Table</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="booking.html">Book Table</a></li>
+        <li><a href="confirmation.html">Confirmation</a></li>
+        <li><a href="admin.html">Admin</a></li>
       </ul>
     </nav>
   </header>
 
   <section id="home" class="hero">
     <h2>Welcome to Smart Dining</h2>
-    <p>Reserve a table, pre-order your meal, and enjoy a smooth dining experience.</p>
-    <img src="https://images.unsplash.com/photo-1555992336-cbf3b61c1742" alt="Restaurant" class="hero-img">
+    <p>Reserve a table, pre-order your meal, and enjoy a seamless dine-in experience.</p>
+    <img src="https://images.unsplash.com/photo-1555992336-cbf3b61c1742" alt="Restaurant" class="hero-img" />
   </section>
 
-  <section id="menu">
-    <h2>Menu</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Pizza">
-        <h3>Margherita Pizza</h3>
-        <p>$10</p>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90" alt="Spaghetti">
-        <h3>Spaghetti Bolognese</h3>
-        <p>$12</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="booking">
-    <h2>Book a Table</h2>
-    <form id="bookingForm">
-      <input type="text" placeholder="Your Name" required>
-      <input type="datetime-local" required>
-      <input type="number" placeholder="No. of Guests" required>
-      <button type="submit">Book Now</button>
-    </form>
-    <p id="confirmation"></p>
+  <section>
+    <h2>How It Works</h2>
+    <ol>
+      <li>Choose your favorite restaurant</li>
+      <li>Book a table online</li>
+      <li>Pre-order food from the menu</li>
+      <li>Receive ETA and walk in on time</li>
+      <li>Enjoy your meal with zero wait</li>
+    </ol>
   </section>
 
   <footer>
     <p>&copy; 2025 Smart Restaurant. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
