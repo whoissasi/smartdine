@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menu</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Smart Restaurant</title>
+  <link rel="stylesheet" href="menu-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>🍴 The Spice House - Menu</h1>
-  <div class="menu">
-    <div class="item">
-      <h2>Masala Dosa</h2>
-      <p>₹80</p>
+  <header>
+    <h1>Restaurant Menu</h1>
+  </header>
+
+  <section class="menu">
+    <h2>Pre-Order Your Food</h2>
+    <form id="orderForm">
+      <div class="menu-item">
+        <label>
+          <input type="checkbox" name="item" value="Butter Naan">
+          Butter Naan ($3)
+        </label>
+      </div>
+      <div class="menu-item">
+        <label>
+          <input type="checkbox" name="item" value="Paneer Tikka">
+          Paneer Tikka ($8)
+        </label>
+      </div>
+      <div class="menu-item">
+        <label>
+          <input type="checkbox" name="item" value="Chocolate Shake">
+          Chocolate Shake ($5)
+        </label>
+      </div>
+
+      <button type="submit">Confirm Pre-Order</button>
+    </form>
+
+    <div id="orderConfirmation" style="display: none;">
+      <h3>Order Confirmed!</h3>
+      <p id="orderSummary"></p>
+      <a href="confirmation.html">Proceed to Confirmation</a>
     </div>
-    <div class="item">
-      <h3>Idli Sambar</h3>
-      <p>₹60</p>
-    </div>
-  </div>
-  <a href="booking.html" class="btn">Book a Table</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Smart Restaurant</p>
+  </footer>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const selectedItems = Array.from(document.querySelectorAll('input[name="item"]:checked'));
+      const itemNames = selectedItems.map(item => item.value);
+
+      if (itemNames.length > 0) {
+        document.getElementById('orderSummary').textContent = `You have ordered: ${itemNames.join(', ')}.`;
+        document.getElementById('orderForm').style.display = 'none';
+        document.getElementById('orderConfirmation').style.display = 'block';
+      } else {
+        alert("Please select at least one item to proceed.");
+      }
+    });
+  </script>
 </body>
 </html>
