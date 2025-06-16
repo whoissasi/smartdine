@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Smart Restaurant</title>
+  <link rel="stylesheet" href="admin-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>📊 Admin Dashboard</h1>
-  <p>Today's Reservations: 12</p>
-  <p>Ongoing Orders: 4</p>
-  <p>Waiting Time: ~15 min</p>
+  <header>
+    <h1>Admin Dashboard</h1>
+  </header>
+
+  <section class="dashboard">
+    <h2>Today's Reservations</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date & Time</th>
+          <th>Guests</th>
+          <th>Pre-Order</th>
+        </tr>
+      </thead>
+      <tbody id="reservations">
+        <!-- Rows will be added dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Smart Restaurant Admin</p>
+  </footer>
+
+  <script>
+    // Dummy reservation data for illustration
+    const reservationData = [
+      {
+        name: "Alice",
+        datetime: "2025-06-18 7:30 PM",
+        guests: 4,
+        preorder: "2x Pasta, 1x Salad"
+      },
+      {
+        name: "Bob",
+        datetime: "2025-06-18 8:00 PM",
+        guests: 2,
+        preorder: "2x Burger, 1x Coke"
+      }
+    ];
+
+    const tbody = document.getElementById('reservations');
+    reservationData.forEach(res => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${res.name}</td>
+        <td>${res.datetime}</td>
+        <td>${res.guests}</td>
+        <td>${res.preorder}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  </script>
 </body>
 </html>
