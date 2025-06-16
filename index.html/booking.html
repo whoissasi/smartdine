@@ -1,18 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Booking</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Table - Smart Restaurant</title>
+  <link rel="stylesheet" href="booking-style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>📅 Reserve Your Table</h1>
-  <form action="confirmation.html" method="get">
-    <input type="text" placeholder="Your Name" required />
-    <input type="number" placeholder="Guests" required />
-    <input type="datetime-local" required />
-    <button type="submit">Confirm Booking</button>
-  </form>
+  <header>
+    <h1>Table Reservation</h1>
+  </header>
+
+  <section class="booking-form">
+    <h2>Reserve Your Spot</h2>
+    <form id="reservationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="datetime">Date & Time:</label>
+      <input type="datetime-local" id="datetime" required>
+
+      <label for="guests">Number of Guests:</label>
+      <input type="number" id="guests" required min="1">
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div id="confirmationMessage" style="display: none;">
+      <h3>Booking Confirmed!</h3>
+      <p id="bookingDetails"></p>
+      <a href="menu.html">Proceed to Pre-Order</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Smart Restaurant</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('reservationForm');
+    const confirmation = document.getElementById('confirmationMessage');
+    const bookingDetails = document.getElementById('bookingDetails');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const datetime = document.getElementById('datetime').value;
+      const guests = document.getElementById('guests').value;
+
+      bookingDetails.textContent = `Thanks ${name}, your table for ${guests} is reserved for ${new Date(datetime).toLocaleString()}.`;
+
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
